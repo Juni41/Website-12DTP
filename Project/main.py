@@ -1,11 +1,12 @@
 from flask import Flask, render_template
 import sqlite3
-app = Flask(__name__)
+app = Flask(__name__) #Create flask object
 
+DATABASE = '/Website-12DTP/Project/league.db'
 
 @app.route('/pizz/<int:id>')
 def pizz(id):
-  conn = sqlite3.connect('pizza.db')
+  conn = sqlite3.connect('league.db')
   cur = conn.cursor()
   cur.execute('SELECT * FROM Pizza WHERE id?', (id,))
   pizza = cur.fetchone()
@@ -18,7 +19,7 @@ def homepage():
 
 @app.route('/about')
 def aboutpage():
-  return "o:"
+  return render_template('about.html')
 
 
 if __name__=="__main__":
