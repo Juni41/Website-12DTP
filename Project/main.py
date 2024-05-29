@@ -4,6 +4,11 @@ app = Flask(__name__) #Create flask object
 
 DATABASE = '/Website-12DTP/Project/league.db'
 
+def get_db_connection():
+  conn = sqlite3.connect('league.db')
+  conn.row_Factory = sqlite3.row
+  return conn
+  
 @app.route('/pizz/<int:id>')
 def pizz(id):
   conn = sqlite3.connect('league.db')
