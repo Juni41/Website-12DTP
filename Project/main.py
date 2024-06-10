@@ -9,13 +9,13 @@ def get_db_connection():
   conn.row_Factory = sqlite3.row
   return conn
   
-@app.route('/pizz/<int:id>')
-def pizz(id):
+@app.route('/char/<int:id>')
+def char(id):
   conn = sqlite3.connect('league.db')
   cur = conn.cursor()
-  cur.execute('SELECT * FROM Pizza WHERE id?', (id,))
-  pizza = cur.fetchone()
-  return render_template("pizza.html", pizza = pizza)
+  cur.execute('SELECT * FROM Champions WHERE id?', (id,))
+  champ = cur.fetchone()
+  return render_template("pizza.html", champ = champ)
 
 
 @app.route('/')
