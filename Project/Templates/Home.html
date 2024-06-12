@@ -2,13 +2,21 @@
 <html>
   <head>
     <title>Support Champions</title>
-    <link rel="stylesheet" href="/static/style.css">
   </head>
+  <style>
+    main {
+      background-color: rgb(0, 255, 234);
+    }
+    .h1 {
+      background-color: black;
+      color: #0A1428;
+    }
+  </style>
   <body>
     <header>
-      <h1>THIS IS MY SITE</h1>
+      <h1 class="h1">THIS IS MY SITE</h1>
     </header>
-    <nav>NAVBAR!</nav>
+    <nav></nav>
     <main>
       {% block content %}{% endblock %}
     </main>
