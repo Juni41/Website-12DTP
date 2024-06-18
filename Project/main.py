@@ -15,7 +15,7 @@ def char(id):
   cur = conn.cursor()
   cur.execute('SELECT * FROM Champions WHERE id?', (id,))
   champ = cur.fetchone()
-  return render_template("pizza.html", champ = champ)
+  return render_template(champions.html", champ = champ)
 
 
 @app.route('/')
