@@ -1,23 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ character.name }}</title>
-</head>
-<body>
-    <h1>{{ character.name }}</h1>
-    <p>{{ character.description }}</p>
-
-    {% if character.name == '' %}
-        <p></p>
-    {% elif character.name == '' %}
-        <p></p>
-    {% elif character.name == '' %}
-        <p></p>
-    {% else %}
-        <p>Character details for {{ character.name }} are not available.</p>
-    {% endif %}
+{% extends "Home.html" %}
+{% block content %}
+    <h1>{{ champ[1] }}</h1>
+    {{champ}}
 
 
-</body>
-</html>
+{% endblock %}

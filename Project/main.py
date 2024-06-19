@@ -13,9 +13,9 @@ def get_db_connection():
 def char(id):
   conn = sqlite3.connect('league.db')
   cur = conn.cursor()
-  cur.execute('SELECT * FROM Champions WHERE id?', (id,))
+  cur.execute('SELECT * FROM Champions WHERE id=?', (id,))
   champ = cur.fetchone()
-  return render_template(champions.html", champ = champ)
+  return render_template("champions.html", champ = champ)
 
 
 @app.route('/')
