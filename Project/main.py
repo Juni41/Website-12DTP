@@ -17,6 +17,15 @@ def char(id):
   champ = cur.fetchone()
   return render_template("champions.html", champ = champ)
 
+@app.route('/gear/<int:id>')
+def gear(id):
+  conn = sqlite3.connect('league.db')
+  cur = conn.cursor()
+  cur.execute('SELECT * FROM Items WHERE id=?', (id,))
+  item = cur.fetchone()
+  return render_template("items.html", item = item)
+
+
 
 @app.route('/')
 def homepage():
