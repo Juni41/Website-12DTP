@@ -5,31 +5,33 @@ app = Flask(__name__) #Create flask object
 DATABASE = '/Website-12DTP/Project/league.db'
 
 def get_db_connection():
-  conn = sqlite3.connect('league.db')
-  conn.row_Factory = sqlite3.row
-  return conn
+   conn = sqlite3.connect('league.db')
+   conn.row_Factory = sqlite3.row
+   return conn
   
 @app.route('/char/<int:id>')
 def char(id):
-  conn = sqlite3.connect('league.db')
-  cur = conn.cursor()
-  cur.execute('SELECT * FROM Champions WHERE id=?', (id,))
-  champ = cur.fetchone()
-  return render_template("champions.html", champ = champ)
+   conn = sqlite3.connect('league.db')
+   cur = conn.cursor()
+   cur.execute('SELECT * FROM Champions WHERE id=?', (id,))
+   champ = cur.fetchone()
+   return render_template("champions.html", champ = champ)
+
 
 @app.route('/gear/<int:id>')
 def gear(id):
-  conn = sqlite3.connect('league.db')
-  cur = conn.cursor()
-  cur.execute('SELECT * FROM Items WHERE id=?', (id,))
-  item = cur.fetchone()
-  return render_template("items.html", item = item)
+   conn = sqlite3.connect('league.db')
+   cur = conn.cursor()
+   cur.execute('SELECT * FROM Items WHERE id=?', (id,))
+   item = cur.fetchone()
+   return render_template("items.html", item = item)
 
-
+ 
 
 @app.route('/')
 def homepage():
-  return render_template('Home.html')
+   return render_template('Home.html')
+  
 
 @app.route('/about')
 def aboutpage():

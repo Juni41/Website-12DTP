@@ -1,6 +1,15 @@
 {% extends "Home.html" %}
 {% block content %}
-    <h1>{{ champ[1] }}</h1>
-    <h2>{{ champ[2] }}</h2>
-    {{champ}}
+<div class="champion-info">
+    <section>
+        <header>
+            <h1>{{ champ[1] }}</h1>
+            <h2>{{ champ[2] }}</h2>
+        </header>
+        <article>
+            <h3>Champion Details:</h3>
+            <p>{{ champ }}</p>
+        </article>
+    </section>
+</div>
 {% endblock %}
