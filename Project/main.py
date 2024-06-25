@@ -37,6 +37,13 @@ def homepage():
 def aboutpage():
   return render_template('about.html')
 
+@app.route('/item_list')
+def item_listpage():
+  return render_template('item_list.html')
+
+@app.route('/champion_list')
+def champion_lsitpage():
+  return render_template('champion_list.html')
 
 if __name__=="__main__":
   app.run(debug=True)

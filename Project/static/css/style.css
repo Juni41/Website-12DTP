@@ -10,8 +10,9 @@ champion-stats {
     margin: 0 auto;
 }
 h1 {
-    background-color: aqua;
+    background-color: #005A82;
     background-position: 2cm;
+    text-decoration-color: #091428;
     font-family: 'Oswald';
 }
 
