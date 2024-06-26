@@ -11,13 +11,13 @@ champion-stats {
 }
 h1 {
     background-color: #005A82;
-    background-position: 2cm;
-    background-size: 300px 100px;
-    font-family: 'Oswald';
+    position: sticky;
+    position: top;
+    font-family: "Oswald";
 }
 
 #logo_icon {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0px;
+    left: 0px;
 }
