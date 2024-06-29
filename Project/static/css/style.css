@@ -9,8 +9,8 @@ champion-stats {
     max-width: 800px;
     margin: 0 auto;
 }
-h1 {
-    background-color: #005A82;
+header {
+    background: #005A82;
     position: sticky;
     position: top;
     font-family: "Oswald";
@@ -20,4 +20,10 @@ h1 {
     position: absolute;
     top: 0px;
     left: 0px;
+    max-width: 25%;
+    max-height: 25%;   
+}
+
+body {
+    background: #CDFAFA;
 }
