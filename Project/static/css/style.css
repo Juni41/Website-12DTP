@@ -1,16 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
-
-
-champion-stats {
+.tests {
+    background-color: #005A82;
+}
+.champion-stats {
     padding: 20px;
     background-color: #ad3f3f;
     border-radius: 8px;
     max-width: 800px;
     margin: 0 auto;
 }
-header {
+.title {
     background: #005A82;
+    background-size: cover;
     position: sticky;
     position: top;
     font-family: "Oswald";
