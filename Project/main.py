@@ -9,7 +9,7 @@ def get_db_connection():
    conn.row_Factory = sqlite3.row
    return conn
   
-@app.route('/char/<int:id>')
+@app.route('/char/<int:id>')#route for champions
 def char(id):
    conn = sqlite3.connect('league.db')
    cur = conn.cursor()
@@ -18,7 +18,7 @@ def char(id):
    return render_template("champions.html", champ = champ)
 
 
-@app.route('/gear/<int:id>')
+@app.route('/gear/<int:id>')#route for items
 def gear(id):
    conn = sqlite3.connect('league.db')
    cur = conn.cursor()
