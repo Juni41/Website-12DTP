@@ -2,7 +2,7 @@ from flask import Flask, render_template
 import sqlite3
 app = Flask(__name__)  # Create flask object
 
-DATABASE = '/Website-12DTP/Project/league.db'
+DATABASE = '/Website-12DTP/Project/league.db'  # DataBase file location
 
 
 def get_db_connection():
@@ -13,7 +13,7 @@ def get_db_connection():
 
 @app.route('/char/<int:id>')  # route for champions
 def char(id):
-    conn = sqlite3.connect('league.db')
+    conn = sqlite3.connect('league.db')  # Get connection to Database
     cur = conn.cursor()
     cur.execute('SELECT * FROM Champions WHERE id=?', (id,))
     champ = cur.fetchone()
@@ -29,12 +29,12 @@ def gear(id):
     return render_template("items.html", item=item)
 
 
-@app.route('/')
+@app.route('/')  # Homepage template
 def homepage():
     return render_template('Home.html')
 
 
-@app.route('/about')
+@app.route('/about')  # About page template that is placed between block content of the home page
 def aboutpage():
     return render_template('about.html')
 
