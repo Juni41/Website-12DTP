@@ -45,9 +45,13 @@ def item_listpage():
 
 
 @app.route('/champion_list')
-def champion_lsitpage():
+def champion_listpage():
     return render_template('champion_list.html')
 
+#def champion_items()
+    
+#def champion_runes()
+    
 
 if __name__ == "__main__":
     app.run(debug=True)

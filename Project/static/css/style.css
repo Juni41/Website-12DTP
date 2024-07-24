@@ -5,7 +5,7 @@
 }
 .champion-stats {
     padding: 20px;
-    background-color: #ad3f3f;
+    background-color: #0A323C;
     border-radius: 8px;
     max-width: 800px;
     margin: 0 auto;
@@ -74,4 +74,11 @@ button:hover {
 
 .scrollable-list li:last-child {
     border-bottom: none;
+}
+
+#Icons {
+    
+    left: 25px;
+    width: 35px;
+    height: 35px;
 }
