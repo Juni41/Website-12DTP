@@ -50,7 +50,9 @@ def item_listpage():
 def champion_listpage():
     return render_template('champion_list.html')
 
-#def champion_items()
+def get_item_combinations_for_champions():
+    conn = get_db_connection()
+    query = '''
     
 #def champion_runes()
     
