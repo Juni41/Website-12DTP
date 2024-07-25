@@ -18,6 +18,8 @@ def char(id):
     cur.execute('SELECT * FROM Champions WHERE id=?', (id,))
     champ = cur.fetchone()
     return render_template("champions.html", champ=champ)
+    if char is none:
+        return render_template("404.html")
 
 
 @app.route('/gear/<int:id>')  # route for items
