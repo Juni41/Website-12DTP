@@ -41,12 +41,12 @@ def aboutpage():
     return render_template('about.html')
 
 
-@app.route('/item_list')
+@app.route('/items')
 def item_listpage():
     return render_template('item_list.html')
 
 
-@app.route('/champion_list')
+@app.route('/champions')
 def champion_listpage():
     return render_template('champion_list.html')
 
@@ -54,8 +54,9 @@ def get_item_combinations_for_champions():
     conn = get_db_connection()
     query = '''
     
-#def champion_runes()
-    
+def champion_runes()
+    conn = get_db_connection()
+    query = '''
 
 if __name__ == "__main__":
     app.run(debug=True)
