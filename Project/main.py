@@ -56,11 +56,12 @@ def champion_listpage():
 def get_item_combinations_for_champions():
     conn = get_db_connection()
     query = '''
-
+    'SELECT FROM Champions where Champ_name'
 
 def get_champion_runes()
     conn = get_db_connection()
     query = '''
+    'SELECT FROM Champions where Champ_name'
 
 
 if __name__ == "__main__":
