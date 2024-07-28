@@ -53,8 +53,8 @@ button:hover {
 
 
 .scrollable-container {
-    width: 300px;
-    height: 200px;
+    width: 400px;
+    height: 500px;
     overflow-y: scroll;
     border: 1px solid #ccc;
     padding: 10px;
