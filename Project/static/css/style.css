@@ -1,5 +1,26 @@
+/*Global*/
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
+body {
+    background: #CDFAFA;
+}
+
+button {
+    background-color: #005A82;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration:double;
+    font-size: 16px;
+    float:inline-end;
+}
+
+button:hover {
+    background-color: #0397AB;
+}
+
+/*Other*/
 .tests {
     background-color: #005A82;
 }
@@ -10,6 +31,7 @@
     max-width: 800px;
     margin: 0 auto;
 }
+
 .title {
     background: #005A82;
     background-size: cover;
@@ -30,27 +52,6 @@
     width: 50px;
     height: 50px;
 }
-
-body {
-    background: #CDFAFA;
-}
-
-button {
-    background-color: #005A82;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration:double;
-    font-size: 16px;
-    float:inline-end;
-}
-
-button:hover {
-    background-color: #0397AB;
-
-}
-
 
 .scrollable-container {
     width: 400px;
