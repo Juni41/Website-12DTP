@@ -2,7 +2,7 @@ from flask import Flask, render_template
 import sqlite3
 app = Flask(__name__)  # Create flask object
 
-DATABASE = '/Website-12DTP/Project/league.db'  # DataBase file location
+DATABASE = '/Website-12DTP/league.db'  # DataBase is located outside the project folder
 
 
 def get_db_connection():
@@ -20,6 +20,8 @@ def char(id):
     if char is None:
         return render_template("404.html"), 404
     return render_template("champions.html", champ=champ)
+    if char is none:
+        return render_template("404.html")
 
 
 @app.route('/gear/<int:id>')  # route for items
@@ -29,6 +31,8 @@ def gear(id):
     cur.execute('SELECT * FROM Items WHERE id=?', (id,))
     item = cur.fetchone()
     return render_template("items.html", item=item)
+    if gear is None:
+        return render_template("404.html")
 
 
 @app.route('/')  # Homepage template
@@ -41,18 +45,25 @@ def aboutpage():
     return render_template('about.html')
 
 
-@app.route('/item_list')
+@app.route('/items')
 def item_listpage():
     return render_template('item_list.html')
 
 
-@app.route('/champion_list')
+@app.route('/champions')
 def champion_listpage():
     return render_template('champion_list.html')
 
-# def champion_items()
 
-# def champion_runes()
+def get_item_combinations_for_champions():
+    conn = get_db_connection()
+    query = '''
+    'SELECT FROM Champions where Champ_name'
+
+def get_champion_runes()
+    conn = get_db_connection()
+    query = '''
+    'SELECT FROM Champions where Champ_name'
 
 
 if __name__ == "__main__":
