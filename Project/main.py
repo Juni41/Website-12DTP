@@ -29,9 +29,10 @@ def gear(id):
     cur = conn.cursor()
     cur.execute('SELECT * FROM Items WHERE id=?', (id,))
     item = cur.fetchone()
+    if champ is None:
+        abort(404)
     return render_template("items.html", item=item)
-    if gear is None:
-        return render_template("404.html")
+    
 
 
 @app.route('/')  # Homepage template
