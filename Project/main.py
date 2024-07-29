@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, abort, render_template
 import sqlite3
 app = Flask(__name__)  # Create flask object
 
@@ -17,8 +17,8 @@ def char(id):
     cur = conn.cursor()
     cur.execute('SELECT * FROM Champions WHERE id=?', (id,))
     champ = cur.fetchone()
-    if char is None:
-        return render_template("404.html"), 404
+    if champ is None:
+        abort(404)
     return render_template("champions.html", champ=champ)
 
 
@@ -58,6 +58,9 @@ def champion_listpage():
     conn.close()
     return render_template('champion_list.html', champions=champions)
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 if __name__ == "__main__":
     app.run(debug=True)
