@@ -17,9 +17,9 @@ def char(id):
     cur = conn.cursor()
     cur.execute('SELECT * FROM Champions WHERE id=?', (id,))
     champ = cur.fetchone()
+    if char is None:
+        return render_template("404.html"), 404
     return render_template("champions.html", champ=champ)
-    if char is none:
-        return render_template("404.html")
 
 
 @app.route('/gear/<int:id>')  # route for items
@@ -50,10 +50,10 @@ def item_listpage():
 def champion_listpage():
     return render_template('champion_list.html')
 
-#def champion_items()
-    
-#def champion_runes()
-    
+# def champion_items()
+
+# def champion_runes()
+
 
 if __name__ == "__main__":
     app.run(debug=True)
