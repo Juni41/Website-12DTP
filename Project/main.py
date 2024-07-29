@@ -7,7 +7,7 @@ DATABASE = '/Website-12DTP/league.db'  # DataBase is located outside the project
 
 def get_db_connection():
     conn = sqlite3.connect('league.db')
-    conn.row_Factory = sqlite3.row
+    conn.row_factory = sqlite3.Row
     return conn
 
 
@@ -20,8 +20,7 @@ def char(id):
     if char is None:
         return render_template("404.html"), 404
     return render_template("champions.html", champ=champ)
-    if char is none:
-        return render_template("404.html")
+
 
 
 @app.route('/gear/<int:id>')  # route for items
@@ -52,18 +51,12 @@ def item_listpage():
 
 @app.route('/champions')
 def champion_listpage():
-    return render_template('champion_list.html')
-
-
-def get_item_combinations_for_champions():
     conn = get_db_connection()
-    query = '''
-    'SELECT FROM Champions where Champ_name'
-
-def get_champion_runes()
-    conn = get_db_connection()
-    query = '''
-    'SELECT FROM Champions where Champ_name'
+    cur = conn.cursor()
+    cur.execute('SELECT id, name FROM Champions')
+    champions = cur.fetchall()
+    conn.close()
+    return render_template('champion_list.html', champions=champions)
 
 
 if __name__ == "__main__":

@@ -6,29 +6,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Champions List</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="scrollable-container">
         <ul class="scrollable-list">
-            <li><button type="button">
-                <a href="http://127.0.0.1:5000/char/1">
-                    <img src="/static/images/Champion_Icons/AlistarSquare.png" alt="AlistarSquare" border="0" id="Icons"/>
-                </a>
-              </button></li>
-            <li><button type="button">
-                <a href="http://127.0.0.1:5000/char/2">
-                    <img src="/static/images/Champion_Icons/AsheSquare.png" alt="AsheSquare" border="0" id="Icons"/>
-                </a>
-              </button></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-
+            {% for champion in champions %}
+            <li>
+                <button type="button">
+                    <a href="{{ url_for('char', id=champion['id']) }}">
+                        <div class="champion-item">
+                            <img src="{{ url_for('static', filename='images/Champion_Icons/' ~ champion['name'] ~ 'Square.png') }}" 
+                                 alt="{{ champion['name'] }}Square" 
+                                 id="Icons"/>
+                            <p class="champion-name">{{ champion['name'] }}</p>
+                        </div>
+                    </a>
+                </button>
+            </li>
+            {% endfor %}
         </ul>
     </div>
 </body>
 </html>
-
 {% endblock %}

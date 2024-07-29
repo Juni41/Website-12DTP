@@ -54,32 +54,42 @@ button:hover {
 }
 
 .scrollable-container {
-    width: 400px;
-    height: 500px;
-    overflow-y: scroll;
-    border: 1px solid #ccc;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .scrollable-list {
+    display: flex;
+    flex-direction: row;
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
 .scrollable-list li {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
+    display: inline-block;
+    margin: 10px;
 }
 
-.scrollable-list li:last-child {
-    border-bottom: none;
+.scrollable-list button {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.champion-item {
+    text-align: center;
 }
 
 #Icons {
-    top: 7px;
-    left: 25px;
-    width: 25px;
-    height: 25px;
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+}
+
+.champion-name {
+    margin-top: 5px; /* Space between the icon and the name */
+    font-size: 14px; /* Adjust font size as needed */
 }
