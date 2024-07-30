@@ -85,11 +85,11 @@ button:hover {
 }
 
 #Icons {
-    width: 50px; /* Adjust size as needed */
-    height: 50px; /* Adjust size as needed */
+    width: 50px; 
+    height: 50px; 
 }
 
 .champion-name {
-    margin-top: 5px; /* Space between the icon and the name */
-    font-size: 14px; /* Adjust font size as needed */
+    margin-top: 5px; /* Space between the icon an name */
+    font-size: 14px;
 }
