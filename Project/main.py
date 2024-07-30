@@ -22,7 +22,6 @@ def char(id):
     return render_template("champions.html", champ=champ)
 
 
-
 @app.route('/gear/<int:id>')  # route for items
 def gear(id):
     conn = sqlite3.connect('league.db')
@@ -58,9 +57,11 @@ def champion_listpage():
     conn.close()
     return render_template('champion_list.html', champions=champions)
 
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
+
 
 if __name__ == "__main__":
     app.run(debug=True)
