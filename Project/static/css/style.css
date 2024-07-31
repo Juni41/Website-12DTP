@@ -55,7 +55,7 @@ button:hover {
 
 .scrollable-container {
     width: 100%;
-    max-width: 1200px; /* Adjust as needed */
+    max-width: 1200px; 
     margin: 0 auto;
     overflow-x: auto;
     white-space: nowrap;
@@ -85,11 +85,33 @@ button:hover {
 }
 
 #Icons {
-    width: 50px; 
-    height: 50px; 
+    width: 75px; 
+    height: 75px; 
+}
+
+/*For Champions list scrollable icons*/
+.champion-icon {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease;
+}
+
+.champion-item:hover .champion-icon {
+    transform: scale(1.1);
+}
+
+.champion-item:hover .champion-icon {
+    background-image: url('../static/images/hover_Icons/{{ champion.name }}Square_Hover.png');
+}
+
+.champion-icon:hover {
+    content: attr(data-hover);
 }
 
 .champion-name {
-    margin-top: 5px; /* Space between the icon an name */
+    text-align: center;
+    margin-top: 10px;
     font-size: 14px;
+    color: #333;
 }
+

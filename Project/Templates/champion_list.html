@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Champions List</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
     <div class="scrollable-container">
@@ -17,8 +17,11 @@
                     <a href="{{ url_for('char', id=champion['id']) }}">
                         <div class="champion-item">
                             <img src="{{ url_for('static', filename='images/Champion_Icons/' ~ champion['name'] ~ 'Square.png') }}" 
-                                 alt="{{ champion['name'] }}Square" 
-                                 id="Icons"/>
+                             alt="{{ champion['name'] }}Square" 
+                             id="Icons"
+                             class="champion-icon" 
+                             onmouseover="this.src='{{ url_for('static', filename='images/hover_Icons/' ~ champion['name'] ~ 'Square_Hover.png') }}';"
+                             onmouseout="this.src='{{ url_for('static', filename='images/Champion_Icons/' ~ champion['name'] ~ 'Square.png') }}';"/> 
                             <p class="champion-name">{{ champion['name'] }}</p>
                         </div>
                     </a>
