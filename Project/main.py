@@ -2,18 +2,18 @@ from flask import Flask, abort, render_template
 import sqlite3
 app = Flask(__name__)  # Create flask object
 
-DATABASE = '/Website-12DTP/league.db'  # DataBase is located outside the project folder
+DATABASE = '/Website-12DTP/league.db'
 
 
 def get_db_connection():
-    conn = sqlite3.connect('league.db')
+    conn = sqlite3.connect(DATABASE)
     conn.row_factory = sqlite3.Row
     return conn
 
 
 @app.route('/char/<int:id>')  # route for champions
 def char(id):
-    conn = sqlite3.connect('league.db')  # Get connection to Database
+    conn = sqlite3.connect(DATABASE)  # Get connection to Database
     cur = conn.cursor()
     cur.execute('SELECT * FROM Champions WHERE id=?', (id,))
     champ = cur.fetchone()
@@ -38,7 +38,7 @@ def homepage():
     return render_template('Home.html')
 
 
-@app.route('/about')  # About page template that is placed between block content of the home page
+@app.route('/about')
 def aboutpage():
     return render_template('about.html')
 
