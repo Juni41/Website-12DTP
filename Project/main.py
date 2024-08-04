@@ -34,8 +34,13 @@ def gear(id):
 
 
 @app.route('/')  # Homepage template
+def layoutpage():
+    return render_template('layout.html')
+
+
+@app.route('/home')  # Homepage template
 def homepage():
-    return render_template('Home.html')
+    return render_template('home.html')
 
 
 @app.route('/about')
