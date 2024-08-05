@@ -19,6 +19,48 @@ button {
 button:hover {
     background-color: #0397AB;
 }
+/*Tierlist*/
+.tier-list {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tier {
+    margin-bottom: 20px;
+}
+
+.tier h2 {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.s-tier h2 { background-color: #e6b800; }
+.a-tier h2 { background-color: #ff8000; }
+.b-tier h2 { background-color: #ffcc00; }
+.c-tier h2 { background-color: #ccff66; }
+.d-tier h2 { background-color: #66ccff; }
+.f-tier h2 { background-color: #ff3333; }
+
+.tier-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tier-images img {
+    max-width: 100px;
+    max-height: 100px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    transition: transform 0.3s;
+}
+
 
 /*Other*/
 .tests {
