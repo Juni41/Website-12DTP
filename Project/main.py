@@ -38,6 +38,11 @@ def homepage():
     return render_template('Home.html')
 
 
+@app.route('Guide')
+def guidepage():
+    return render_template('guide.html')
+
+
 @app.route('/about')
 def aboutpage():
     return render_template('about.html')
