@@ -1,35 +1,22 @@
 {% extends "Home.html" %}
+
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Champions List</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-</head>
-<body>
-    <div class="scrollable-container">
-        <ul class="scrollable-list">
-            {% for champion in champions %}
-            <li>
-                <button type="button">
-                    <a href="{{ url_for('char', id=champion['id']) }}">
-                        <div class="champion-item">
-                            <img src="{{ url_for('static', filename='images/Champion_Icons/' ~ champion['name'] ~ 'Square.png') }}" 
-                             alt="{{ champion['name'] }}Square" 
-                             id="Icons"
-                             class="champion-icon" 
-                             onmouseover="this.src='{{ url_for('static', filename='images/hover_Icons/' ~ champion['name'] ~ 'Square_Hover.png') }}';"
-                             onmouseout="this.src='{{ url_for('static', filename='images/Champion_Icons/' ~ champion['name'] ~ 'Square.png') }}';"/> 
-                            <p class="champion-name">{{ champion['name'] }}</p>
-                        </div>
-                    </a>
-                </button>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-</body>
-</html>
+<div class="scrollable-container">
+    <ul class="scrollable-list">
+        {% for champion in champions %}
+        <li>
+            <a href="{{ url_for('char', id=champion['id']) }}">
+                <div class="champion-item">
+                    <img src="{{ url_for('static', filename='images/Champion_Icons/' ~ champion['name'] ~ 'Square.png') }}" 
+                         alt="{{ champion['name'] }}Square" 
+                         class="champion-icon" 
+                         onmouseover="this.src='{{ url_for('static', filename='images/hover_Icons/' ~ champion['name'] ~ 'Square_Hover.png') }}';"
+                         onmouseout="this.src='{{ url_for('static', filename='images/Champion_Icons/' ~ champion['name'] ~ 'Square.png') }}';"/> 
+                    <p class="champion-name">{{ champion['name'] }}</p>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}
