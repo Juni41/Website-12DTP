@@ -9,6 +9,11 @@
         </header>
         <article>
             <h3>Champion Details:</h3>
+            {% for champion in champions %}
+            <a href="{{ url_for('char', id=champion['id']) }}">
+                <img src="{{ url_for('static', filename='images/Champion_Icons/' ~ champion['name'] ~ 'Square.png') }}" 
+            </a>
+            {% endfor %}
             <p>{{ champ }}</p>
         </article>
         <article>

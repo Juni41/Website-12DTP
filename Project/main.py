@@ -38,9 +38,14 @@ def homepage():
     return render_template('Home.html')
 
 
-@app.route('Guide')
+@app.route('/Guide')
 def guidepage():
     return render_template('guide.html')
+
+
+@app.route('/tierlist')
+def tierlist():
+    return render_template('tierlist.html')
 
 
 @app.route('/about')
