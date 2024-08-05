@@ -13,7 +13,7 @@ def get_db_connection():
 
 @app.route('/char/<int:id>')  # route for champions
 def char(id):
-    conn = sqlite3.connect(DATABASE)  # Get connection to Database
+    conn = get_db_connection()  # Use the helper function for database connection
     cur = conn.cursor()
     cur.execute('SELECT * FROM Champions WHERE id=?', (id,))
     champ = cur.fetchone()
