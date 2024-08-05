@@ -13,7 +13,7 @@ def get_db_connection():
 
 @app.route('/char/<int:id>')  # route for champions
 def char(id):
-    conn = get_db_connection()  # Use the helper function for database connection
+    conn = sqlite3.connect(DATABASE)  # Get connection to Database
     cur = conn.cursor()
     cur.execute('SELECT * FROM Champions WHERE id=?', (id,))
     champ = cur.fetchone()
@@ -34,13 +34,8 @@ def gear(id):
 
 
 @app.route('/')  # Homepage template
-def layoutpage():
-    return render_template('layout.html')
-
-
-@app.route('/home')  # Homepage template
 def homepage():
-    return render_template('home.html')
+    return render_template('Home.html')
 
 
 @app.route('/about')
