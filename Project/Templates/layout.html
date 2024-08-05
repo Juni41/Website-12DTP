@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Support Champions</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <div class="tests">
+   <body>
+     <header class="title">      
+       <center><h1>Support Champions</h1></center>
+       </header>
+     <body>
+    </div>
+      <img src="/static/images/Misc/Support_icon.png" id="logo_icon" alt="support_icon">
+    </body>
+    <div>
+    <nav>
+      <center>
+        <a href="http://127.0.0.1:5000/"><button>Home</button></a>
+        <a href="http://127.0.0.1:5000/about"><button>about</button></a>
+        <a href="http://127.0.0.1:5000/champions"><button>Champions</button></a>
+        <a href="http://127.0.0.1:5000/items"><button>Items</button></a>
+      </center>
+    </nav>
+    </div>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+    <footer>{% include 'Footer.html' %}</footer>
+  </body>
+</html>
+
