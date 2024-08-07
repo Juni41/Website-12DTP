@@ -22,6 +22,21 @@ def char(id):
     return render_template("champions.html", champ=champ)
 
 
+def get_best_items_for_champion(champion_id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute('''
+        SELECT Items.name, Items.type, Items.stats
+        FROM Items
+        JOIN Champions_Item_Combinations ON Items.id = Champions_Item_Combinations.item_id
+        WHERE Champions_Item_Combinations.champion_id = ?
+        LIMIT 3
+    ''', (champion_id,))
+    items = cur.fetchall()
+    conn.close()
+    return items
+
+
 @app.route('/gear/<int:id>')  # route for items
 def gear(id):
     conn = sqlite3.connect('league.db')

@@ -1,21 +1,14 @@
 {% extends "Home.html" %}
 
 {% block content %}
+<head>
+    <title>{{ champ['name'] }} - Best Items</title>
+</head>
 <div class="champion-stats">
-    <section>
-        <header>
-            <h1>{{ champ[1] }}</h1>
-            <h2>{{ champ[2] }}</h2>
-        </header>
-        <article>
-            <h3>Champion Details:</h3>
-            {% for champion in champions %}
-            <a href="{{ url_for('char', id=champion['id']) }}">
-                <img src="{{ url_for('static', filename='images/Champion_Icons/' ~ champion['name'] ~ 'Square.png') }}" 
-            </a>
-            {% endfor %}
-            <p>{{ champ }}</p>
-        </article>
+    <body>
+        <h1>{{ champ[1] }}</h1>
+        <h2>Best Items</h2>
+    </body>
         <article>
             <h3>Champion Statistics:</h3>
             <p>{{ champ[4] }} {{ champ[5] }} {{ champ[6] }}</p>
