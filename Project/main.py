@@ -48,7 +48,7 @@ def gear(id):
     return render_template("items.html", item=item)
 
 
-@app.route('/')  #layout template
+@app.route('/')  # layout template
 def homepage():
     return render_template('layout.html')
 
