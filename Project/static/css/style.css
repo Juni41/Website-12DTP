@@ -153,9 +153,6 @@ html, body {
     transform: scale(1.1);
 }
 
-.champion-item:hover .champion-icon {
-    background-image: url('../static/images/hover_Icons/{{ champion.name }}Square_Hover.png');
-}
 
 .champion-icon:hover {
     content: attr(data-hover);
