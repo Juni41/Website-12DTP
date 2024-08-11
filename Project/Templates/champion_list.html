@@ -8,7 +8,6 @@
             <a href="{{ url_for('char', id=champion['id']) }}">
                 <div class="champion-item">
                     <img src="{{ url_for('static', filename='images/Champion_Icons/' ~ champion['name'] ~ 'Square.png') }}" 
-                         alt="{{ champion['name'] }}Square" 
                          class="champion-icon" 
                          onmouseover="this.src='{{ url_for('static', filename='images/hover_Icons/' ~ champion['name'] ~ 'Square_Hover.png') }}';"
                          onmouseout="this.src='{{ url_for('static', filename='images/Champion_Icons/' ~ champion['name'] ~ 'Square.png') }}';"/> 
