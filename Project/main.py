@@ -1,4 +1,4 @@
-from flask import Flask, abort, render_template
+from flask import Flask, abort, render_template, url_for
 import sqlite3
 app = Flask(__name__)  # Create flask object
 
@@ -49,10 +49,13 @@ def gear(id):
 
 
 @app.route('/')  # layout template
-def homepage():
+def templatepage():
     return render_template('layout.html')
 
-
+@app.route('/Home')
+def homepage():
+    render_template('home.html')
+    
 @app.route('/Guide')
 def guidepage():
     return render_template('guide.html')
