@@ -19,14 +19,15 @@ def char(id):
     champ = cur.fetchone()
     if champ is None:
         abort(404)
+    get_best_items_forchampion(id)
     return render_template("champions.html", champ=champ)
 
 
-def get_best_items_for_champion(champion_id):
-    conn = get_db_connection()
+def get_best_items_forchampion(champion_id):
+    conn = sqlite3.connect(DATABASE)
     cur = conn.cursor()
     cur.execute('''
-        SELECT Items.name, Items.type, Items.stats
+        SELECT Items.name
         FROM Items
         JOIN Champions_Item_Combinations ON Items.id = Champions_Item_Combinations.item_id
         WHERE Champions_Item_Combinations.champion_id = ?
