@@ -1,4 +1,4 @@
-from flask import Flask, abort, render_template, url_for
+from flask import Flask, abort, render_template
 import sqlite3
 app = Flask(__name__)  # Create flask object
 
@@ -11,19 +11,7 @@ def get_db_connection():
     return conn
 
 
-@app.route('/char/<int:id>')  # route for champions
-def char(id):
-    conn = sqlite3.connect(DATABASE)  # Get connection to Database
-    cur = conn.cursor()
-    cur.execute('SELECT * FROM Champions WHERE id=?', (id,))
-    champ = cur.fetchone()
-    if champ is None:
-        abort(404)
-    get_best_items_forchampion(id)
-    return render_template("champions.html", champ=champ)
-
-
-def get_best_items_forchampion(champion_id):
+def get_best_items_for_champion(champion_id):
     conn = sqlite3.connect(DATABASE)
     cur = conn.cursor()
     cur.execute('''
@@ -36,6 +24,18 @@ def get_best_items_forchampion(champion_id):
     items = cur.fetchall()
     conn.close()
     return items
+
+
+@app.route('/char/<int:id>')  # route for champions
+def char(id):
+    conn = sqlite3.connect(DATABASE)  # Get connection to Database
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM Champions WHERE id=?', (id,))
+    champ = cur.fetchone()
+    if champ is None:
+        abort(404)
+    items = get_best_items_for_champion(id)
+    return render_template("champions.html", champ=champ, items=items)
 
 
 @app.route('/gear/<int:id>')  # route for items
@@ -53,10 +53,12 @@ def gear(id):
 def templatepage():
     return render_template('layout.html')
 
+
 @app.route('/Home')
 def homepage():
     render_template('home.html')
-    
+
+
 @app.route('/Guide')
 def guidepage():
     return render_template('guide.html')

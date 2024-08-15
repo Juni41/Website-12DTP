@@ -24,6 +24,19 @@ button:hover {
 .tests {
     background-color: #005A82;
 }
+/*Champion Page*/
+.champion {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+}
+
 .champion-stats {
     padding: 20px;
     background-color: #0A323C;
