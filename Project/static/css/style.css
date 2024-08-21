@@ -82,10 +82,10 @@ html, body {
 /*For Champions list scrollable icons*/
 .scrollable-container {
     width: 100%;
-    max-width: 1200px; 
+    max-width: 1200px; /*adjust for size*/
     margin: 0 auto;
     overflow-x: auto;
-    white-space: nowrap;
+    white-space: nowrap; /*text wont wrap to next line*/
 }
 
 .scrollable-list {
@@ -122,7 +122,7 @@ html, body {
     transition: transform 0.3s ease;
 }
 
-.champion-item:hover .champion-icon {
+.champion-item:hover .champion-icon { 
     transform: scale(1.1);
 }
 
@@ -131,7 +131,7 @@ html, body {
     content: attr(data-hover);
 }
 
-.champion-name {
+.champion-name { /*text under the champion icons*/
     text-align: center;
     margin-top: 10px;
     font-size: 14px;
