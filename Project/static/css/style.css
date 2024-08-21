@@ -37,6 +37,12 @@ button:hover {
     font-size: 2em;
 }
 
+.champion-bg {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+}
+
 .champion-stats {
     padding: 20px;
     background-color: #0A323C;

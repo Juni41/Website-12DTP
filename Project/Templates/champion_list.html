@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="scrollable-container">
-    <ul class="scrollable-list">
+<div class="scroll-container">
+    <ul class="scroll-list">
         {% for champion in champions %}
         <li>
             <a href="{{ url_for('char', id=champion['id']) }}">

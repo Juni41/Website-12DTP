@@ -6,20 +6,20 @@
 </head>
 <div class="champion-stats">
     <body>
-        <h1>{{ champ[1] }}</h1>
-        <h1>{{ champ[2] }}</h1>
-        <h2>Best Items</h2>
-        <ul>
-            {% for item in items %} {# displaying best items from data stored in the item variable #}
-            <li>{{ item[0] }}</li>
-            {% endfor %}
-        </ul>
+         <h1>{{ champ[1] }}</h1>
+         <h1>{{ champ[2] }}</h1>
+          <h2>Best Items</h2>
+                <ul>
+                   {% for item in items %} {# displaying best items from data stored in the item variable #}
+                   <li>{{ item[0] }}</li>
+                   {% endfor %}
+               </ul>
         <article>
             <h3>Champion Statistics:</h3>
             <p>WR{{ champ[4] }} BR{{ champ[5] }} PR{{ champ[6] }}</p>
         </article>
         {% for champ in champions %} {# changing the page background in according to the champion #}
-        <div class="champion" style="Background-Splash: url
+        <div class="champion-bg" style="background-image: url('/static/images/backgrounds/{{ champ['name'] }}.jpg');">
         {% endfor %}
     </body>
 </div>
