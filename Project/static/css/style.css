@@ -44,10 +44,10 @@ button:hover {
 }
 
 .champion-stats {
-    padding: 20px;
+    padding: 30px;
     background-color: #0A323C;
     border-radius: 8px;
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -131,10 +131,6 @@ html, body {
     transform: scale(1.1);
 }
 
-
-.champion-icon:hover {
-    content: attr(data-hover);
-}
 
 .champion-name { /*text under the champion icons*/
     text-align: center;
