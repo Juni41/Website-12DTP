@@ -42,7 +42,7 @@ button:hover {
     height: 100vh;
     background-size: cover;
 }
-
+/*
 .champion-stats {
     padding: 30px;
     background-color: #0A323C;
@@ -50,7 +50,7 @@ button:hover {
     max-width: 100%;
     margin: 0 auto;
 }
-
+*/
 html, body {
     margin: 0;
     padding: 0;
@@ -139,3 +139,9 @@ html, body {
     color: #333;
 }
 
+/* champion backgrounds */
+.ashe-background {
+    background-image: url('/static/images/Backgrounds/Ashe.jpg');
+    background-size: cover;
+    background-position: center;
+}

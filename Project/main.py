@@ -76,7 +76,7 @@ def item_listpage():
 
 @app.route('/champions')
 def champion_listpage():
-    conn = sqlite3.connect(DATABASE)
+    conn = get_db_connection()
     cur = conn.cursor()
     cur.execute('SELECT id, name FROM Champions')
     champions = cur.fetchall()

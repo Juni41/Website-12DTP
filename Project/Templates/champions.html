@@ -1,14 +1,10 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<link rel="stylesheet" href="/static/css/style.css" />
 <head>
     <title>{{ champ['name'] }} - Best Build</title>
 </head>
-        {% for champ in champions %} {# changing the page background in according to the champion #}
-        <a href="{{ url_for('char', id=champion['id']) }}">
-        <img src="{{ url_for('static', filename='images/Backgrounds/' ~ champion['name'] ~ '.jpg') }}">
-        </a> 
-        {% endfor %}
 <div class="champion-stats">
     <body>
          <h1>{{ champ[1] }}</h1>
@@ -23,6 +19,6 @@
             <h3>Champion Statistics:</h3>
             <p>WR{{ champ[4] }} BR{{ champ[5] }} PR{{ champ[6] }}</p>
         </article>
-    </body>
 </div>
+</body>
 {% endblock %}
