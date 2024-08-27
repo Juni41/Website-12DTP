@@ -3,10 +3,12 @@
 {% block content %}
 <div class="scroll-container">
     <ul class="scroll-list">
-        {% for champion in champions %}
+        {% for champion in champions %}{# iterating over each champion in the list #}
         <li>
+            <!-- Links to the page dynamically generated wit the champ id-->
             <a href="{{ url_for('char', id=champion['id']) }}">
                 <div class="champion-item">
+                    <!-- Icon image for champion generated using the champions name -->
                     <img src="{{ url_for('static', filename='images/Champion_Icons/' ~ champion['name'] ~ 'Square.png') }}" 
                          class="champion-icon" 
                          onmouseover="this.src='{{ url_for('static', filename='images/hover_Icons/' ~ champion['name'] ~ 'Square_Hover.png') }}';"
