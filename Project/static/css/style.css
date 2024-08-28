@@ -139,3 +139,12 @@ html, body {
     text-align: center;
     padding: 20px 0; 
  }
+
+ /*Guide page*/
+ .guide-nav {
+    width: 250px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+ }
