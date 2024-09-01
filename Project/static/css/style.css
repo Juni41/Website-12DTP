@@ -25,6 +25,15 @@ button:hover {
     background-color: #005A82;
 }
 /*Champion Page*/
+.champion-background {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
 .champion {
     width: 100%;
     height: 100vh;
