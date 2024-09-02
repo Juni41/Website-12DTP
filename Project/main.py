@@ -34,6 +34,7 @@ def char(id):
     champ = cur.fetchone()
     if champ is None:
         abort(404)
+    image_bg = champ[10]
     items = get_best_items_for_champion(id)
     return render_template("champions.html", champ=champ, items=items)
 

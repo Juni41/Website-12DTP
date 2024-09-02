@@ -26,7 +26,7 @@ button:hover {
 }
 /*Champion Page*/
 .champion-background {
-    background-size: cover;
+    background-size:auto    ;
     background-position: center;
     height: 100vh;
     display: flex;
@@ -46,6 +46,12 @@ button:hover {
     font-size: 2em;
 }
 
+#champion_bg {
+    width: 200px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
 .champion-info {
     padding: 30px;
     background-color: #0A323C;
