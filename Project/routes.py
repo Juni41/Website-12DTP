@@ -2,37 +2,33 @@ from flask import Flask, abort, render_template
 import sqlite3
 app = Flask(__name__)  # Create flask object
 
-DATABASE = '/Website-12DTP/league.db'
+DATABASE = '/Website-12DTP/league.db' #Path to Database
 
 
-def get_db_connection():
+def get_db_connection(): #Establish Database Connection
     conn = sqlite3.connect(DATABASE)
     conn.row_factory = sqlite3.Row
     return conn
 
 
-def get_best_items_for_champion(champion_id):
-    conn = sqlite3.connect(DATABASE)
-    cur = conn.cursor()
-    cur.execute('''
-        SELECT Items.name
-        FROM Items
-        JOIN Champions_Item_Combinations ON Items.id = Champions_Item_Combinations.item_id
-        WHERE Champions_Item_Combinations.champion_id = ?
-        LIMIT 3
-    ''', (champion_id,))
-    items = cur.fetchall()
-    conn.close()
+def get_best_items_for_champion(champion_id): #Function for 3 best items for champion
+    with get_db_connection() as conn:
+        items = conn.execute('''
+            SELECT Items.name
+            FROM Items
+            JOIN Champions_Item_Combinations ON Items.id =
+            Champions_Item_Combinations.item_id
+            WHERE Champions_Item_Combinations.champion_id = ?
+            LIMIT 3
+        ''', (champion_id,)).fetchall()
     return items
 
 
-@app.route('/char/<int:id>')  # route for champions
+@app.route('/char/<int:id>') #Route for champion details
 def char(id):
-    conn = sqlite3.connect(DATABASE)  # Get connection to Database
-    cur = conn.cursor()
-    cur.execute('SELECT * FROM Champions WHERE id=?', (id,))
-    champ = cur.fetchone()
-    if champ is None:
+    with get_db_connection() as conn:
+        champ = conn.execute('SELECT * FROM Champions WHERE id=?', (id,)).fetchone()
+    if champ is None: # If no champion is found, return 404 error
         abort(404)
     items = get_best_items_for_champion(id)
     return render_template("champions.html", champ=champ, items=items)
@@ -40,11 +36,9 @@ def char(id):
 
 @app.route('/gear/<int:id>')  # route for items
 def gear(id):
-    conn = sqlite3.connect('league.db')
-    cur = conn.cursor()
-    cur.execute('SELECT * FROM Items WHERE id=?', (id,))
-    item = cur.fetchone()
-    if gear is None:
+    with get_db_connection() as conn:
+        item = conn.execute('SELECT * FROM Items WHERE id=?', (id,)).fetchone()
+    if item is None: # If no item is found, return 404 error
         abort(404)
     return render_template("items.html", item=item)
 
@@ -74,21 +68,19 @@ def item_listpage():
     return render_template('item_list.html')
 
 
-@app.route('/champions')
+@app.route('/champions') #Champions List
 def champion_listpage():
-    conn = get_db_connection()
-    cur = conn.cursor()
-    cur.execute('SELECT id, name FROM Champions')
-    champions = cur.fetchall()
-    conn.close()
+    # Fetch the list of champions
+    with get_db_connection() as conn:
+        champions = conn.execute('SELECT id, name FROM Champions').fetchall()
     return render_template('champion_list.html', champions=champions)
 
-
+#404 error
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
 
-
+#500 error
 @app.errorhandler(500)
 def internal_server_error(e):
     return render_template('500.html'), 500

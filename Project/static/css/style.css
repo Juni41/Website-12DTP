@@ -5,6 +5,10 @@ body {
     background: #CDFAFA;
 }
 
+/* NavBar */
+button, .webpage, #logo_icon {
+    position: sticky;
+}
 button {
     background-color: #005A82;
     border: none;
@@ -19,7 +23,6 @@ button {
 button:hover {
     background-color: #0397AB;
 }
-
 /*Other*/
 .tests {
     background-color: #005A82;
@@ -67,6 +70,10 @@ button:hover {
     margin: 0 auto;
 }
 
+/* Layout */
+.sticky {
+    position: sticky;
+}
 html, body {
     margin: 0;
     padding: 0;
@@ -75,8 +82,7 @@ html, body {
 }
 
 .webpage {
-    background-color: #005A82;
-    position: sticky; /* Title and nav bar Fixed to top of page*/
+    background-color: #005A82;/* Title and nav bar Fixed to top of page*/
     top: 0;
     left: 0;
     width: 100%; /* span the full viewport */
@@ -87,6 +93,7 @@ html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    z-index: 22;
 }
 
 
@@ -96,6 +103,7 @@ html, body {
     left: 5px;
     width: 50px;
     height: 50px;
+    z-index: 23;
 }
 
 
@@ -172,22 +180,4 @@ html, body {
     position: fixed;
  }
  /* Error Pages */
- .error-text {
-    text-align: center;
- }
-
-.error-text h1 {
-    font-size: 10em;
-    margin: 0;
-}
-
-.error-text a {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #ff6f61;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
+ 
