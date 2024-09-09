@@ -1,11 +1,11 @@
-from flask import Flask, abort, render_template, request
+from flask import Flask, abort, render_template
 import sqlite3
 app = Flask(__name__)  # Create flask object
 
 DATABASE = 'league.db'  # Path to Database
 
 
-def get_db_connection(): #Establish Database Connection
+def get_db_connection():  # Establish Database Connection
     conn = sqlite3.connect(DATABASE)
     conn.row_factory = sqlite3.Row
     return conn
@@ -45,22 +45,12 @@ def gear(id):
 
 @app.route('/')  # layout template
 def templatepage():
-    return render_template('layout.html')
-
-
-@app.route('/Home')
-def homepage():
-    render_template('home.html')
+    return render_template('home.html')
 
 
 @app.route('/Guide')
 def guidepage():
     return render_template('guide.html')
-
-
-@app.route('/about')
-def aboutpage():
-    return render_template('about.html')
 
 
 @app.route('/items')
@@ -76,13 +66,13 @@ def champion_listpage():
     return render_template('champion_list.html', champions=champions)
 
 
-  # 404 error
+# 404 error
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
 
 
-  # 500 error
+# 500 error
 @app.errorhandler(500)
 def internal_server_error(e):
     return render_template('500.html'), 500

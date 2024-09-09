@@ -97,17 +97,6 @@ html, body {
 }
 
 
-#logo_icon { /*Website Logo icon*/
-    position: absolute; /* allowing us to place at specific coordinates as below */
-    top: 1px;
-    left: 5px;
-    width: 50px;
-    height: 50px;
-    z-index: 23;
-}
-
-
-
 /*For Champions list scrollable icons*/
 .scroll-container {
     width: 100%;
@@ -162,6 +151,14 @@ html, body {
     margin-top: 10px;
     font-size: 14px;
     color: #333;
+}
+
+/* Champions List Search Bar */
+.search-input {
+    width: 300px;
+    padding:10px 15px;
+    outline: none;
+    
 }
  /* footer */
  .credit-area {
