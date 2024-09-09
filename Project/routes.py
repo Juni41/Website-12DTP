@@ -1,8 +1,8 @@
-from flask import Flask, abort, render_template
+from flask import Flask, abort, render_template, request
 import sqlite3
 app = Flask(__name__)  # Create flask object
 
-DATABASE = '/Website-12DTP/league.db' #Path to Database
+DATABASE = 'league.db'  # Path to Database
 
 
 def get_db_connection(): #Establish Database Connection
@@ -11,7 +11,7 @@ def get_db_connection(): #Establish Database Connection
     return conn
 
 
-def get_best_items_for_champion(champion_id): #Function for 3 best items for champion
+def get_best_items_for_champion(champion_id):  # Function for 3 best items for champion
     with get_db_connection() as conn:
         items = conn.execute('''
             SELECT Items.name
@@ -24,11 +24,11 @@ def get_best_items_for_champion(champion_id): #Function for 3 best items for cha
     return items
 
 
-@app.route('/char/<int:id>') #Route for champion details
+@app.route('/char/<int:id>')  # Route for champion details
 def char(id):
     with get_db_connection() as conn:
         champ = conn.execute('SELECT * FROM Champions WHERE id=?', (id,)).fetchone()
-    if champ is None: # If no champion is found, return 404 error
+    if champ is None:  # If no champion is found, return 404 error
         abort(404)
     items = get_best_items_for_champion(id)
     return render_template("champions.html", champ=champ, items=items)
@@ -38,7 +38,7 @@ def char(id):
 def gear(id):
     with get_db_connection() as conn:
         item = conn.execute('SELECT * FROM Items WHERE id=?', (id,)).fetchone()
-    if item is None: # If no item is found, return 404 error
+    if item is None:  # If no item is found, return 404 error
         abort(404)
     return render_template("items.html", item=item)
 
@@ -68,19 +68,21 @@ def item_listpage():
     return render_template('item_list.html')
 
 
-@app.route('/champions') #Champions List
+@app.route('/champions')  # Champions List
 def champion_listpage():
     # Fetch the list of champions
     with get_db_connection() as conn:
         champions = conn.execute('SELECT id, name FROM Champions').fetchall()
     return render_template('champion_list.html', champions=champions)
 
-#404 error
+
+  # 404 error
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
 
-#500 error
+
+  # 500 error
 @app.errorhandler(500)
 def internal_server_error(e):
     return render_template('500.html'), 500

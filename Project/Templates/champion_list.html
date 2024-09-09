@@ -1,14 +1,15 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<!-- Search bar -->
+<input type="text" id="search-input" placeholder="Search for a champion..." class="search-input" onkeyup="filterChampions()">
+
 <div class="scroll-container">
-    <ul class="scroll-list">
-        {% for champion in champions %}{# iterating over each champion in the list #}
-        <li>
-            <!-- Links to the page dynamically generated wit the champ id-->
+    <ul class="scroll-list" id="champion-list">
+        {% for champion in champions %}
+        <li class="champion-item" data-name="{{ champion['name'].lower() }}">
             <a href="{{ url_for('char', id=champion['id']) }}">
-                <div class="champion-item">
-                    <!-- Icon image for champion generated using the champions name -->
+                <div>
                     <img src="{{ url_for('static', filename='images/Champion_Icons/' ~ champion['name'] ~ 'Square.png') }}" 
                          class="champion-icon" 
                          onmouseover="this.src='{{ url_for('static', filename='images/hover_Icons/' ~ champion['name'] ~ 'Square_Hover.png') }}';"
