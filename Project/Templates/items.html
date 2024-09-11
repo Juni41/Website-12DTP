@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
+<img src="{{ url_for('static', filename='images/item_icons/' ~ item['name'] ~ '.png') }}" 
+     alt="{{ item['name'] }}" class="item-icon"/>
 {% endblock %}
