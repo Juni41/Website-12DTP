@@ -69,6 +69,18 @@ def champion_synergies():
         JOIN champions ON champion_synergies.champion_id = champions.id;
         """
         synergies = conn.execute(query).fetchall()
+
+    synergies = [  # Put results in this dictionary
+        {
+            # Dictionary contents
+            'adc_name': synergy['adc_name'],
+            'champion_name': synergy['champion_name'],
+            # Image paths
+            'adc_icon': f"/static/images/ADC_Icons/{synergy['adc_name']}Square.png",
+            'support_icon': f"/static/images/Champion_Icons/{synergy['champion_name']}Square.png"
+        }
+        for synergy in synergies  #Iterate
+    ]
     return render_template('synergies.html', synergies=synergies)
 
 
