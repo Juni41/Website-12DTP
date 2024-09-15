@@ -58,6 +58,20 @@ def item_listpage():
     return render_template('item_list.html')
 
 
+@app.route('/synergies')
+def champion_synergies():
+    with get_db_connection() as conn:
+        query = """
+        SELECT adc.name AS adc_name,
+               champions.name AS champion_name
+        FROM champion_synergies
+        JOIN adc ON champion_synergies.adc_id = adc.id
+        JOIN champions ON champion_synergies.champion_id = champions.id;
+        """
+        synergies = conn.execute(query).fetchall()
+    return render_template('synergies.html', synergies=synergies)
+
+
 @app.route('/champions')  # Champions List
 def champion_listpage():
     # Fetch the list of champions
