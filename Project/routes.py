@@ -60,26 +60,23 @@ def item_listpage():
 
 @app.route('/synergies')
 def champion_synergies():
+    query = """
+    SELECT adc.name, champions.name
+    FROM champion_synergies
+    JOIN adc ON champion_synergies.adc_id = adc.id
+    JOIN champions ON champion_synergies.champion_id = champions.id;
+    """
     with get_db_connection() as conn:
-        query = """
-        SELECT adc.name AS adc_name,
-               champions.name AS champion_name
-        FROM champion_synergies
-        JOIN adc ON champion_synergies.adc_id = adc.id
-        JOIN champions ON champion_synergies.champion_id = champions.id;
-        """
         synergies = conn.execute(query).fetchall()
 
-    synergies = [  # Put results in this dictionary
+    synergies = [
         {
-            # Dictionary contents
-            'adc_name': synergy['adc_name'],
-            'champion_name': synergy['champion_name'],
-            # Image paths
-            'adc_icon': f"/static/images/ADC_Icons/{synergy['adc_name']}Square.png",
-            'support_icon': f"/static/images/Champion_Icons/{synergy['champion_name']}Square.png"
+            'adc_name': adc,
+            'champion_name': champ,
+            'adc_icon': f"/static/images/ADC_Icons/{adc}Square.png",
+            'support_icon': f"/static/images/Champion_Icons/{champ}Square.png"
         }
-        for synergy in synergies  #Iterate
+        for adc, champ in synergies
     ]
     return render_template('synergies.html', synergies=synergies)
 
