@@ -36,7 +36,7 @@
                     <!-- Hover Effect For ADC Icon -->
                     <img src="{{ url_for('static', filename='images/ADC_Icons/' ~ adc['name'] ~ 'Square.png') }}" 
                          class="champion-icon" 
-                         onmouseover="this.src='{{ url_for('static', filename='images/ADC_hover_Icons/' ~ adc['name'] ~ 'Square_Hover.png') }}';"
+                         onmouseover="this.src='{{ url_for('static', filename='images/ADC_hover_Icons/' ~ adc['name'] ~ '_Square_Hover.png') }}';"
                          onmouseout="this.src='{{ url_for('static', filename='images/ADC_Icons/' ~ adc['name'] ~ 'Square.png') }}';"/> 
                     <p class="adc-name">{{ adc['name'] }}</p>
                 </div>
