@@ -2,9 +2,11 @@
 
 {% block content %}
 <!-- Search bar -->
-<input type="text" id="search-input" placeholder="Search For a Champion..." class="search-input" onkeyup="filterChampions()">
+<input type="text" id="search-input" placeholder="Search for a champion..." class="search-input" onkeyup="filterItems()">
 
+<!-- Champion List -->
 <div class="scroll-container">
+    <h2>Champions</h2>
     <ul class="scroll-list" id="champion-list">
         {% for champion in champions %}
         <li class="champion-item" data-name="{{ champion['name'].lower() }}">
@@ -23,19 +25,44 @@
     </ul>
 </div>
 
+<!-- ADC List -->
+<div class="scroll-container">
+    <h2>ADCs</h2>
+    <ul class="scroll-list" id="champion-list">
+        {% for adc in ADC %}
+        <li class="champion-item" data-name="{{ adc['name'].lower() }}">
+            <a href="{{ url_for('ADC', id=adc['id']) }}">
+                <div>
+                    <!-- Hover Effect For ADC Icon -->
+                    <img src="{{ url_for('static', filename='images/ADC_Icons/' ~ adc['name'] ~ 'Square.png') }}" 
+                         class="champion-icon" 
+                         onmouseover="this.src='{{ url_for('static', filename='images/ADC_hover_Icons/' ~ adc['name'] ~ 'Square_Hover.png') }}';"
+                         onmouseout="this.src='{{ url_for('static', filename='images/ADC_Icons/' ~ adc['name'] ~ 'Square.png') }}';"/> 
+                    <p class="adc-name">{{ adc['name'] }}</p>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
 <!-- Filtering Javascript -->
 <script>
-function filterChampions() {
-    const input = document.getElementById('search-input').value.toLowerCase();  // Get the search input
-    const championItems = document.querySelectorAll('.champion-item'); // Get all champion items
-
-    championItems.forEach(item => { // iterating champion item
+function filterItems() {
+    const input = document.getElementById('search-input').value.toLowerCase();  // Get input
+    
+   
+    const championItems = document.querySelectorAll('.champion-item');  // Filter for support champions
+    championItems.forEach(item => {
         const name = item.getAttribute('data-name');
-        if (name.startsWith(input)) {
-            item.style.display = ''; // show if matches
-        } else {
-            item.style.display = 'none'; // hide if doesnt match
-        }
+        item.style.display = name.includes(input) ? '' : 'none';
+    });
+
+    
+    const adcItems = document.querySelectorAll('.adc-item'); // Filter for adc champions
+    adcItems.forEach(item => {
+        const name = item.getAttribute('data-name');
+        item.style.display = name.includes(input) ? '' : 'none';
     });
 }
 </script>
