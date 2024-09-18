@@ -24,7 +24,7 @@ def get_best_items_for_champion(champion_id):  # Function for 3 best items for c
     return items
 
 
-@app.route('/char/<int:id>')  # Route for champion details
+@app.route('/champions/<int:id>')  # Route for champion details
 def char(id):
     with get_db_connection() as conn:
         champ = conn.execute('SELECT * FROM Champions WHERE id=?', (id,)).fetchone()
@@ -34,7 +34,16 @@ def char(id):
     return render_template("champions.html", champ=champ, items=items)
 
 
-@app.route('/gear/<int:id>')  # route for items
+@app.route('/adc/<int:id>')  # Route for adc details
+def ADC(id):
+    with get_db_connection() as conn:
+        adc = conn.execute('SELECT * FROM ADC WHERE id=?', (id,)).fetchone()
+    if adc is None:  # If no adc is found, return 404 error
+        abort(404)
+    return render_template("ADCS.html", adc=adc)
+
+
+@app.route('/items/<int:id>')  # route for items
 def gear(id):
     with get_db_connection() as conn:
         item = conn.execute('SELECT * FROM Items WHERE id=?', (id,)).fetchone()
@@ -69,14 +78,14 @@ def champion_synergies():
     with get_db_connection() as conn:
         synergies = conn.execute(query).fetchall()
 
-    synergies = [
+    synergies = [  # Dictionary for icon paths in champion synergies
         {
             'adc_name': adc,
             'champion_name': champ,
             'adc_icon': f"/static/images/ADC_Icons/{adc}Square.png",
             'support_icon': f"/static/images/Champion_Icons/{champ}Square.png"
         }
-        for adc, champ in synergies
+        for adc, champ in synergies  # Iterate through each tuple
     ]
     return render_template('synergies.html', synergies=synergies)
 
@@ -86,7 +95,8 @@ def champion_listpage():
     # Fetch the list of champions
     with get_db_connection() as conn:
         champions = conn.execute('SELECT id, name FROM Champions').fetchall()
-    return render_template('champion_list.html', champions=champions)
+        ADC = conn.execute('SELECT id, name FROM ADC').fetchall()
+    return render_template('champion_list.html', champions=champions, ADC=ADC)
 
 
 # 404 error
