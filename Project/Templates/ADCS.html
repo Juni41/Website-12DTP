@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/css/style.css" />
+<head>
+    <title>{{ adc['name'] }} - Best Build</title>
+</head>
+<div class="champion-info-container">
+       <div class="champion-info">
+           <body>
+             <h1>{{ adc[1] }}</h1>
+<footer>
+    <a href="{{ url_for('champion_listpage') }}">Back to Champions List</a>
+</footer>
+</body>
+{% endblock %}
