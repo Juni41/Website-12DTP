@@ -1,30 +1,49 @@
 {% extends "layout.html" %}
 
+{% block title %}
+    {{ champ['name'] }} - Best Build
+{% endblock %}
+
 {% block content %}
 <link rel="stylesheet" href="/static/css/style.css" />
-<head>
-    <title>{{ champ['name'] }} - Best Build</title>
-</head>
-<body>
+
 <div class="champion-info-container">
-    <img src="{{ champ[8] }}" alt="{{ champ['name'] }} image" id="champion_bg">
+    
+    <!-- Champion information -->
     <div class="champion-info">
         <h1>{{ champ[1] }}</h1>
-        <h1>{{ champ[2] }}</h1>
-        <h2>Best Items</h2>
-        <ul>
-            {% for item in items %}
-            <li>{{ item[0] }}</li>
-            {% endfor %}
-        </ul>
-        <article>
+        <h2>{{ champ[2] }}</h2>
+        
+        <!-- Best items section -->
+        <section class="best-items">
+            <h2>Best Items</h2>
+            <ul>
+                {% for item in items %}
+                <li>{{ item[0] }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <!-- Champion statistics -->
+        <article class="champion-stats">
             <h3>Champion Statistics:</h3>
-            <p>Winrate {{ champ[4] }} Banrate {{ champ[5] }} Pickrate {{ champ[6] }}</p>
+            <p>
+                <strong>Winrate:</strong> {{ champ[4] }}%<br>
+                <strong>Banrate:</strong> {{ champ[5] }}%<br>
+                <strong>Pickrate:</strong> {{ champ[6] }}%
+            </p>
         </article>
+
+             <!-- Champion image -->
+        <div class="champion-image">
+            <img src="{{ champ[8] }}" alt="{{ champ['name'] }} image" id="champion_bg">
+        </div>
     </div>
 </div>
-<footer>
+
+<!-- Footer -->
+<footer class="champion-footer">
     <a href="{{ url_for('champion_listpage') }}">Back to Champions List</a>
 </footer>
-</body>
+
 {% endblock %}
