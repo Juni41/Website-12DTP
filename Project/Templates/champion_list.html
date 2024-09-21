@@ -12,7 +12,7 @@
         <li class="champion-item" data-name="{{ champion['name'].lower() }}">
             <a href="{{ url_for('char', id=champion['id']) }}">
                 <div>
-                    <!-- Hover Effect For Champion Icon -->
+                    <!-- Hover effect for support icons -->
                     <img src="{{ url_for('static', filename='images/Champion_Icons/' ~ champion['name'] ~ 'Square.png') }}" 
                          class="champion-icon" 
                          onmouseover="this.src='{{ url_for('static', filename='images/hover_Icons/' ~ champion['name'] ~ 'Square_Hover.png') }}';"
@@ -33,7 +33,7 @@
         <li class="champion-item" data-name="{{ adc['name'].lower() }}">
             <a href="{{ url_for('ADC', id=adc['id']) }}">
                 <div>
-                    <!-- Hover Effect For ADC Icon -->
+                    <!-- Hover effect for ADC icons -->
                     <img src="{{ url_for('static', filename='images/ADC_Icons/' ~ adc['name'] ~ 'Square.png') }}" 
                          class="champion-icon" 
                          onmouseover="this.src='{{ url_for('static', filename='images/ADC_hover_Icons/' ~ adc['name'] ~ '_Square_Hover.png') }}';"

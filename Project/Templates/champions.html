@@ -5,20 +5,20 @@
 <head>
     <title>{{ champ['name'] }} - Best Build</title>
 </head>
+<body>
 <div class="champion-info-container">
     <img src="{{ champ[8] }}" alt="{{ champ['name'] }} image" id="champion_bg">
-       <div class="champion-info">
-           <body>
-             <h1>{{ champ[1] }}</h1>
-             <h1>{{ champ[2] }}</h1>
-             <h2>Best Items</h2>
-                <ul>
-                   {% for item in items %} {# displaying best items from data stored in the item variable #}
-                   <li>{{ item[0] }}</li>
-                   {% endfor %}
-               </ul>
-             <article>
-              <h3>Champion Statistics:</h3>
+    <div class="champion-info">
+        <h1>{{ champ[1] }}</h1>
+        <h1>{{ champ[2] }}</h1>
+        <h2>Best Items</h2>
+        <ul>
+            {% for item in items %}
+            <li>{{ item[0] }}</li>
+            {% endfor %}
+        </ul>
+        <article>
+            <h3>Champion Statistics:</h3>
             <p>Winrate {{ champ[4] }} Banrate {{ champ[5] }} Pickrate {{ champ[6] }}</p>
         </article>
     </div>
