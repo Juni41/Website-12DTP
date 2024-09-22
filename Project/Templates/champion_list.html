@@ -10,7 +10,7 @@
     <ul class="scroll-list" id="champion-list">
         {% for champion in champions %}
         <li class="champion-item" data-name="{{ champion['name'].lower() }}">
-            <a href="{{ url_for('char', id=champion['id']) }}">
+            <a href="{{ url_for('char', id=champion['id'], name=champion['name'].lower()) }}">
                 <div>
                     <!-- Hover effect for support icons -->
                     <img src="{{ url_for('static', filename='images/Champion_Icons/' ~ champion['name'] ~ 'Square.png') }}" 
@@ -31,7 +31,7 @@
     <ul class="scroll-list" id="champion-list">
         {% for adc in ADC %}
         <li class="champion-item" data-name="{{ adc['name'].lower() }}">
-            <a href="{{ url_for('ADC', id=adc['id']) }}">
+            <a href="{{ url_for('ADC', id=adc['id'], name=adc['name'].lower()) }}">
                 <div>
                     <!-- Hover effect for ADC icons -->
                     <img src="{{ url_for('static', filename='images/ADC_Icons/' ~ adc['name'] ~ 'Square.png') }}" 

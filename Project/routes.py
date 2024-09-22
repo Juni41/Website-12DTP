@@ -29,22 +29,22 @@ def get_best_items_for_champion(champion_id):  # Function for 3 best items for c
     return items
 
 
-@app.route('/champions/<int:id>')  # Route for champion details
-def char(id):
+@app.route('/champions/<int:id>/<string:name>')  # Route for champion details
+def char(id, name):
     with get_db_connection() as conn:
         champ = conn.execute('SELECT * FROM Champions WHERE id=?', (id,)).fetchone()
-    if champ is None:  # If no champion is found, return 404 error
-        abort(404)
+    if champ is None or champ['name'].lower() != name.lower():
+        abort(404)   # If no champion is found, return 404 error
     items = get_best_items_for_champion(id)
     return render_template("champions.html", champ=champ, items=items)
 
 
-@app.route('/adc/<int:id>')  # Route for adc details
-def ADC(id):
+@app.route('/adc/<int:id>/<string:name>')  # Route for adc details
+def ADC(id, name):
     with get_db_connection() as conn:
         adc = conn.execute('SELECT * FROM ADC WHERE id=?', (id,)).fetchone()
-    if adc is None:  # If no adc is found, return 404 error
-        abort(404)
+    if adc is None or adc['name'].lower() != name.lower():  
+        abort(404)  # If no adc is found, return 404 error
     return render_template("ADCS.html", adc=adc)
 
 
