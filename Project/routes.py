@@ -1,8 +1,13 @@
 from flask import Flask, abort, render_template
 import sqlite3
+import os
+
 app = Flask(__name__)  # Create flask object
 
 DATABASE = 'league.db'  # Path to Database
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATABASE = os.path.join(BASE_DIR, 'league.db')
 
 
 def get_db_connection():  # Establish Database Connection
@@ -99,13 +104,13 @@ def champion_listpage():
     return render_template('champion_list.html', champions=champions, ADC=ADC)
 
 
-# 404 error
+# 404
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
 
 
-# 500 error
+# 500
 @app.errorhandler(500)
 def internal_server_error(e):
     return render_template('500.html'), 500
