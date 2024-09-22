@@ -131,6 +131,48 @@ ul.support-jobs li {
     background-color: #f9f9f9;
     border-radius: 5px;
 }
+/* Items list scrollable icons */
+.item-list-container {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+.scrollable-item-list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;  /* Enables horizontal scrolling */
+    gap: 15px;
+    padding: 10px;
+}
+
+.scrollable-item-list::-webkit-scrollbar {
+    height: 8px;
+}
+
+.scrollable-item-list::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+.scrollable-item-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 150px;
+}
+
+.item-icon {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
 
 /* Footer */
 .champion-footer {

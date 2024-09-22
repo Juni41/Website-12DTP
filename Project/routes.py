@@ -69,7 +69,9 @@ def guidepage():
 
 @app.route('/items')
 def item_listpage():
-    return render_template('item_list.html')
+    with get_db_connection() as conn:
+        gear = conn.execute('SELECT id, name FROM Items').fetchall()
+    return render_template('item_list.html', gear=gear)
 
 
 @app.route('/synergies')

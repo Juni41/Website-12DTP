@@ -1,11 +1,19 @@
 {% extends "layout.html" %}
 
 {% block content %}
- 
-
-{% for item in items %}
-<div class="'item">
-    
+<div class="item-list-container">
+    <h1>Item List</h1>
+    <div class="scrollable-item-list">
+        {% for item in gear %}
+            <div class="item">
+                <!-- Wrap the icon and name in a link to the item page -->
+                <a href="{{ url_for('gear', id=item['id']) }}">
+                    <img src="{{ url_for('static', filename='images/item_icons/' ~ item['name'] ~ '.png') }}" 
+                        alt="{{ item['name'] }} icon" class="item-icon">
+                    <p>{{ item['name'] }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
 </div>
-{% endfor %}
 {% endblock %}
