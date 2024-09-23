@@ -48,8 +48,8 @@ def ADC(id, name):
     return render_template("ADCS.html", adc=adc)
 
 
-@app.route('/items/<int:id>')  # route for items
-def gear(id):
+@app.route('/items/<int:id>/<string:name>')  # route for items
+def gear(id, name):
     with get_db_connection() as conn:
         item = conn.execute('SELECT * FROM Items WHERE id=?', (id,)).fetchone()
     if item is None:  # If no item is found, return 404 error

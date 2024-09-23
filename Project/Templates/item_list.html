@@ -7,7 +7,7 @@
         {% for item in gear %}
             <div class="item">
                 <!-- Wrap the icon and name in a link to the item page -->
-                <a href="{{ url_for('gear', id=item['id']) }}">
+                <a href="{{ url_for('gear', id=item['id'], name=item['name']) }}">
                     <img src="{{ url_for('static', filename='images/item_icons/' ~ item['name'] ~ '.png') }}" 
                         alt="{{ item['name'] }} icon" class="item-icon">
                     <p>{{ item['name'] }}</p>

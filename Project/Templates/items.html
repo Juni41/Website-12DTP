@@ -8,7 +8,8 @@
     <!-- Champion information -->
     <div class="champion-info">
         <h1>{{ item[1] }}</h1>
-        <h2><b>Cost:</b> {{ item[2] }}</h2>  
+        <h2><b>Cost:</b> {{ item[2] }}</h2> 
+        <p>{{ item[3] }}</p> 
         <img src="{{ url_for('static', filename='images/item_icons/' ~ item['name'] ~ '.png') }}" 
         alt="{{ item['name'] }}" class="item-icon"/>      
     </div> <!-- champion info -->
