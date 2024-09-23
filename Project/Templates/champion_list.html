@@ -6,7 +6,7 @@
 
 <!-- Champion List -->
 <div class="scroll-container">
-    <h2>Champions</h2>
+    <h2>Supports</h2>
     <ul class="scroll-list" id="champion-list">
         {% for champion in champions %}
         <li class="champion-item" data-name="{{ champion['name'].lower() }}">
@@ -18,12 +18,12 @@
                          onmouseover="this.src='{{ url_for('static', filename='images/hover_Icons/' ~ champion['name'] ~ 'Square_Hover.png') }}';"
                          onmouseout="this.src='{{ url_for('static', filename='images/Champion_Icons/' ~ champion['name'] ~ 'Square.png') }}';"/> 
                     <p class="champion-name">{{ champion['name'] }}</p>
-                </div>
+                </div> <!-- Closing div for img icons -->
             </a>
         </li>
         {% endfor %}
     </ul>
-</div>
+</div> <!-- Scroll-container -->
 
 <!-- ADC List -->
 <div class="scroll-container">
@@ -39,12 +39,12 @@
                          onmouseover="this.src='{{ url_for('static', filename='images/ADC_hover_Icons/' ~ adc['name'] ~ '_Square_Hover.png') }}';"
                          onmouseout="this.src='{{ url_for('static', filename='images/ADC_Icons/' ~ adc['name'] ~ 'Square.png') }}';"/> 
                     <p class="adc-name">{{ adc['name'] }}</p>
-                </div>
+                </div> <!-- Closing div for img icons -->
             </a>
         </li>
         {% endfor %}
     </ul>
-</div>
+</div> <!-- Scroll-container -->
 
 <!-- Filtering Javascript -->
 <script>

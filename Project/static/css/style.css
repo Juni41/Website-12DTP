@@ -6,10 +6,10 @@ body {
 }
 
 h1, h2, h3, p {
-    color: #010A13;
+    color: #010A13; /* Text font */
 }
 
-/* NavBar */
+/* Layout NavBar */
 button, .webpage, #logo_icon {
     position: sticky;
 }
@@ -314,12 +314,62 @@ html, body {
  }
 
  /*Guide page*/
- .guide-nav {
-    width: 250px;
-    background-color: #f4f4f4;
+.guide-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#guide-nav {
+    position: sticky;
+    top: 0;
+    width: 600px;
+    height: 100vh;  /* Full viewport height */
     padding: 20px;
-    height: 100vh;
-    position: fixed;
- }
- /* Error Pages */
- 
+    background-color: #f4f4f4;
+    border-right: 1px solid #ddd;
+}
+
+#guide-nav h2 {
+    margin-bottom: 20px;
+}
+
+#guide-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+#guide-nav ul li {
+    margin-bottom: 10px;
+}
+
+#guide-nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+#guide-nav ul li a:hover {
+    color: #007bff;
+}
+
+/* Main content styles */
+main {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+main h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+main section {
+    margin-bottom: 40px;
+}
+
+main section h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}

@@ -28,18 +28,17 @@
         <article class="champion-stats">
             <h3>Champion Statistics:</h3>
             <p>
+                <strong>Pickrate:</strong> {{ champ[3] }}%<br>
                 <strong>Winrate:</strong> {{ champ[4] }}%<br>
-                <strong>Banrate:</strong> {{ champ[5] }}%<br>
-                <strong>Pickrate:</strong> {{ champ[6] }}%
+                <strong>Banrate:</strong> {{ champ[5] }}%
             </p>
         </article>
 
-             <!-- Champion image -->
         <div class="champion-image">
-            <img src="{{ champ[8] }}" alt="{{ champ['name'] }} image" id="champion_bg">
-        </div>
-    </div>
-</div>
+            <img src="{{ champ[7] }}" alt="{{ champ['name'] }} image" id="champion_bg">
+        </div> <!-- champion-image -->
+    </div> <!-- champion info -->
+</div> <!-- champion info container -->
 
 <!-- Footer -->
 <footer class="champion-footer">

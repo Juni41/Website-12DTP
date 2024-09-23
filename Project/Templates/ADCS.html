@@ -1,16 +1,38 @@
 {% extends "layout.html" %}
 
+{% block title %}
+    {{ adc['name'] }} - Best Build
+{% endblock %}
+
 {% block content %}
 <link rel="stylesheet" href="/static/css/style.css" />
-<head>
-    <title>{{ adc['name'] }} - Best Build</title>
-</head>
+
 <div class="champion-info-container">
-       <div class="champion-info">
-           <body>
-             <h1>{{ adc[1] }}</h1>
-<footer>
+    
+    <!-- Champion information -->
+    <div class="champion-info">
+        <h1>{{ adc[1] }}</h1>
+        <h2>{{ adc[2] }}</h2>
+        
+        <!-- Champion statistics -->
+        <article class="champion-stats">
+            <h3>Champion Statistics:</h3>
+            <p>
+                <strong>Winrate:</strong> {{ adc[4] }}%<br>
+                <strong>Banrate:</strong> {{ adc[5] }}%<br>
+                <strong>Pickrate:</strong> {{ adc[6] }}%
+            </p>
+        </article>
+
+        <div class="champion-image">
+            <img src="{{ champ[8] }}" alt="{{ champ['name'] }} image" id="champion_bg">
+        </div> <!-- champion-image -->
+    </div> <!-- champion info -->
+</div> <!-- champion info container -->
+
+<!-- Footer -->
+<footer class="champion-footer">
     <a href="{{ url_for('champion_listpage') }}">Back to Champions List</a>
 </footer>
-</body>
+
 {% endblock %}

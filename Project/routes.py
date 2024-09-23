@@ -4,19 +4,19 @@ import os
 
 app = Flask(__name__)  # Create flask object
 
-DATABASE = 'league.db'  # Path to Database
+DATABASE = 'league.db'
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATABASE = os.path.join(BASE_DIR, 'league.db')
 
 
-def get_db_connection():  # Establish Database Connection
+def get_db_connection():  # Function for database connection
     conn = sqlite3.connect(DATABASE)
     conn.row_factory = sqlite3.Row
     return conn
 
 
-def get_best_items_for_champion(champion_id):  # Function for 3 best items for champion
+def get_best_items_for_champion(champion_id):
     with get_db_connection() as conn:
         items = conn.execute('''
             SELECT Items.name
@@ -43,7 +43,7 @@ def char(id, name):
 def ADC(id, name):
     with get_db_connection() as conn:
         adc = conn.execute('SELECT * FROM ADC WHERE id=?', (id,)).fetchone()
-    if adc is None or adc['name'].lower() != name.lower():  
+    if adc is None or adc['name'].lower() != name.lower():
         abort(404)  # If no adc is found, return 404 error
     return render_template("ADCS.html", adc=adc)
 
