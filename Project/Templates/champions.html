@@ -8,12 +8,11 @@
 <link rel="stylesheet" href="/static/css/style.css" />
 
 <div class="champion-info-container">
-    
     <!-- Champion information -->
     <div class="champion-info">
         <h1>{{ champ[1] }}</h1>
         <h2>{{ champ[2] }}</h2>
-        
+
         <!-- Best items -->
         <section class="best-items">
             <h2>Best Items</h2>
@@ -28,9 +27,9 @@
         <article class="champion-stats">
             <h3>Champion Statistics:</h3>
             <p>
-                <strong>Pickrate:</strong> {{ champ[3] }}%<br>
-                <strong>Winrate:</strong> {{ champ[4] }}%<br>
-                <strong>Banrate:</strong> {{ champ[5] }}%
+                <strong>Pickrate:</strong> {{ champ[3] }}<br>
+                <strong>Winrate:</strong> {{ champ[4] }}<br>
+                <strong>Banrate:</strong> {{ champ[5] }}
             </p>
         </article>
 
@@ -38,6 +37,13 @@
             <img src="{{ champ[7] }}" alt="{{ champ['name'] }} image" id="champion_bg">
         </div> <!-- champion-image -->
     </div> <!-- champion info -->
+
+    <!-- Video container -->
+    <div class="video-container">
+        <h2>Champion Spotlight</h2>
+        <iframe width="100%" height="300" src="{{ champ[8]}}" frameborder="0"
+            allowfullscreen></iframe>
+    </div> <!-- Video Container -->
 </div> <!-- champion info container -->
 
 <!-- Footer -->

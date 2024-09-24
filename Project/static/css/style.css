@@ -1,12 +1,20 @@
 /*Global*/
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
-
+/* General Layout Cleanup */
 body {
+    margin: 0;
+    padding: 0;
     background: #CDFAFA;
+    box-sizing: border-box;
 }
 
-h1, h2, h3, p {
-    color: #010A13; /* Text font */
+
+button, .webpage, #logo_icon {
+    position: static; 
+}
+
+h1, h2, h3, p { /* Font styling */
+    color: #010A13; 
 }
 
 /* Layout NavBar */
@@ -34,7 +42,7 @@ ul.support-jobs li {
     border-bottom: 1px solid #ccc;
 }
 
-/* Section styling */
+/* Homepage section styling */
 .about-section, .support-section, .support-jobs-section, .playing-support-section {
     padding: 20px;
     margin-bottom: 20px;
@@ -57,7 +65,7 @@ ul.support-jobs li {
     display: inline-block;
     padding: 10px 20px;
     margin: 5px;
-    background-color: #007bff;
+    background-color: #005A82;
     color: white;
     border-radius: 5px;
     text-decoration: none;
@@ -69,17 +77,65 @@ ul.support-jobs li {
 }
 
 /*Champion information page*/
+
+
+/* Champion info section styling */
 .champion-info-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
     padding: 20px;
     background-color: #CDFAFA;
     border-radius: 10px;
+    flex-wrap: nowrap; /* Prevent wrapping initially */
 }
 
-/* Champion image */
+/* Champion info section styling */
+.champion-info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    background-color: #CDFAFA;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding is included in width calculations */
+}
+
+/* Champion info section styling */
+.champion-info {
+    width: 60%; /* Fixed width for the champion info section */
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box; /* Ensure padding is included in width */
+    min-width: 300px; /* Prevent shrinking too much */
+}
+
+/* Video section styling */
+.video-container {
+    width: 35%; /* Fixed width for the video container */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-sizing: border-box; /* Ensure padding is included in width */
+    min-width: 250px; /* Prevent shrinking too much */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 1000px) {
+    .champion-info-container {
+        flex-direction: column; /* Stack content vertically */
+    }
+
+    .champion-info, .video-container {
+        width: 100%; /* Full width on smaller screens */
+    }
+}
+/* Champion image styling */
 .champion-image {
     flex-basis: 100%;
     text-align: center;
@@ -93,16 +149,7 @@ ul.support-jobs li {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Champion info */
-.champion-info {
-    flex-basis: 100%;
-    max-width: 800px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
+/* Additional styles for champion information */
 .champion-info h1 {
     font-size: 32px;
     margin-bottom: 10px;
@@ -113,7 +160,6 @@ ul.support-jobs li {
     margin-bottom: 20px;
 }
 
-/* Best items list */
 .best-items ul {
     list-style-type: none;
     padding-left: 0;
@@ -124,13 +170,15 @@ ul.support-jobs li {
     margin-bottom: 10px;
 }
 
-/* Champion statistics */
 .champion-stats {
     margin-top: 20px;
     padding: 10px;
     background-color: #f9f9f9;
     border-radius: 5px;
 }
+
+
+
 /* Items list scrollable icons */
 .item-list-container {
     width: 100%;
