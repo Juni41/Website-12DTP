@@ -41,13 +41,13 @@ button:hover {
 }
 
 /*Homepage*/
-ul.support-jobs li {
+ul.list-sec li {
     padding: 10px 0;
     border-bottom: 1px solid #ccc;
 }
 
 /* Homepage section styling */
-.about-section, .support-section, .support-jobs-section, .playing-support-section {
+.sec1, .sec2, .sec3, .sec4 {
     padding: 20px;
     margin-bottom: 20px;
     background-color: #fff;
@@ -242,9 +242,6 @@ ul.support-jobs li {
 }
 
 /* Layout */
-.sticky {
-    position: sticky;
-
 html, body {
     margin: 0;
     padding: 0;
