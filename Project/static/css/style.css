@@ -1,6 +1,6 @@
 /*Global*/
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
-/* General Layout Cleanup */
+/* General Layout */
 body {
     margin: 0;
     padding: 0;
@@ -8,9 +8,13 @@ body {
     box-sizing: border-box;
 }
 
-
-button, .webpage, #logo_icon {
-    position: static; 
+.logo-icon {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%); 
+    width: 50px; 
+    height: 50px; 
 }
 
 h1, h2, h3, p { /* Font styling */
@@ -72,7 +76,7 @@ ul.support-jobs li {
 }
 
 .cta-buttons .btn:hover {
-    background-color: #0056b3;
+    background-color: #C89B3C;
     transition: 0.3s;
 }
 
@@ -104,7 +108,7 @@ ul.support-jobs li {
     box-sizing: border-box; /* Ensures padding is included in width calculations */
 }
 
-/* Champion info section styling */
+/* Champion info section */
 .champion-info {
     width: 60%; /* Fixed width for the champion info section */
     padding: 20px;
@@ -115,7 +119,7 @@ ul.support-jobs li {
     min-width: 300px; /* Prevent shrinking too much */
 }
 
-/* Video section styling */
+/* Video section */
 .video-container {
     width: 35%; /* Fixed width for the video container */
     display: flex;
@@ -135,7 +139,8 @@ ul.support-jobs li {
         width: 100%; /* Full width on smaller screens */
     }
 }
-/* Champion image styling */
+
+/* Champion image */
 .champion-image {
     flex-basis: 100%;
     text-align: center;
@@ -149,7 +154,7 @@ ul.support-jobs li {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Additional styles for champion information */
+/* champion information */
 .champion-info h1 {
     font-size: 32px;
     margin-bottom: 10px;
@@ -176,8 +181,6 @@ ul.support-jobs li {
     background-color: #f9f9f9;
     border-radius: 5px;
 }
-
-
 
 /* Items list scrollable icons */
 .item-list-container {
@@ -241,7 +244,7 @@ ul.support-jobs li {
 /* Layout */
 .sticky {
     position: sticky;
-}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -268,26 +271,44 @@ html, body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 15px; 
 }
+
 .row {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 20px;
+    gap: 20px;
+    margin-bottom: 40px;
+    justify-content: space-between; /* even distribution */
 }
+
 .icon-pair {
     display: flex;
     align-items: center;
-    width: 20%;
+    justify-content: flex-start;
+    flex: 1 1 20%; 
     box-sizing: border-box;
-    padding: 10px;
+    padding: 15px;
+    background-color: #f9f9f9; 
+    border-radius: 8px; /* round corners */
+    transition: transform 0.3s ease; /* hover effect */
 }
+
+.icon-pair:hover {
+    transform: translateY(-5px); /* hover effect */
+}
+
 .icon-pair img {
-    width: 50px; 
+    width: 50px;
     height: 50px;
-    margin-right: 10px;
+    margin-right: 15px; 
 }
+
 .icon-pair span {
-    margin-right: 10px;
+    margin-right: 15px;
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
 }
 
 /*For Champions list scrollable icons*/
@@ -322,12 +343,12 @@ html, body {
     text-align: center;
 }
 
-#Icons {
+#Icons { /* icon picture size displayed in the list */
     width: 75px; 
     height: 75px; 
 }
 
-.champion-icon {
+.champion-icon { /* icon picture properties */
     width: 100px;
     height: 100px;
     border-radius: 6px;
