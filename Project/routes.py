@@ -16,7 +16,6 @@ def get_db_connection():  # Function for database connection
 
 
 # Queries
-
 def get_champion_by_id(champion_id):
     """Fetch champion details by id"""
     with get_db_connection() as conn:
@@ -89,7 +88,6 @@ def get_champion_synergies():
 
 
 # Routes
-
 @app.route('/champions/<int:id>/<string:name>')  # Route for champion details
 def char(id, name):
     champ = get_champion_by_id(id)
@@ -145,7 +143,6 @@ def champion_listpage():
 
 
 # Error handlers
-
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
