@@ -5,10 +5,9 @@
     <title>Champion Synergies</title>
 </head>
 <body>
-    <div class="container">
+    <div class="synergy-container">
         <h1>Champion Synergies</h1>
-        <!-- Loop through synergies in rows of 5 -->
-        {% for synergy_batch in synergies|batch(5) %}
+        {% for synergy_batch in synergies|batch(9) %}
         <div class="row">
             {% for synergy in synergy_batch %}
             <div class="icon-pair">
@@ -16,10 +15,10 @@
                 <span>{{ synergy.adc_name }}</span>
                 <img src="{{ synergy.support_icon }}" alt="{{ synergy.champion_name }}"> 
                 <span>{{ synergy.champion_name }}</span>
-            </div>
+            </div> <!-- icon-pair -->
             {% endfor %}
-        </div>
+        </div> <!-- row -->
         {% endfor %}
-    </div>
+    </div><!-- synergy-container -->
 </body>
 {% endblock %}

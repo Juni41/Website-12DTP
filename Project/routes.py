@@ -19,19 +19,22 @@ def get_db_connection():  # Function for database connection
 def get_champion_by_id(champion_id):
     """Fetch champion details by id"""
     with get_db_connection() as conn:
-        return conn.execute('SELECT * FROM Champions WHERE id=?', (champion_id,)).fetchone()
+        return conn.execute('SELECT * FROM Champions WHERE id=?',
+                            (champion_id,)).fetchone()
 
 
 def get_adc_by_id(adc_id):
     """Fetch ADC details by id"""
     with get_db_connection() as conn:
-        return conn.execute('SELECT * FROM ADC WHERE id=?', (adc_id,)).fetchone()
+        return conn.execute('SELECT * FROM ADC WHERE id=?',
+                            (adc_id,)).fetchone()
 
 
 def get_item_by_id(item_id):
     """Fetch item details by id"""
     with get_db_connection() as conn:
-        return conn.execute('SELECT * FROM Items WHERE id=?', (item_id,)).fetchone()
+        return conn.execute('SELECT * FROM Items WHERE id=?',
+                            (item_id,)).fetchone()
 
 
 def get_best_items_for_champion(champion_id):
@@ -40,7 +43,8 @@ def get_best_items_for_champion(champion_id):
         return conn.execute('''
             SELECT Items.name
             FROM Items
-            JOIN Champions_Item_Combinations ON Items.id = Champions_Item_Combinations.item_id
+            JOIN Champions_Item_Combinations ON Items.id =
+            Champions_Item_Combinations.item_id
             WHERE Champions_Item_Combinations.champion_id = ?
             LIMIT 3
         ''', (champion_id,)).fetchall()

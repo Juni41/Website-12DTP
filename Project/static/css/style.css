@@ -272,7 +272,7 @@ html, body {
 }
 
 /* Synergies Page */
-.container {
+.synergy-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px; 
@@ -390,16 +390,16 @@ html, body {
  /*Guide page*/
 .guide-container {
     display: flex;
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
 }
 
 #guide-nav {
     position: sticky;
     top: 0;
-    width: 600px;
+    width: 1200px;
     height: 100vh;  /* Full viewport height */
-    padding: 20px;
+    padding: 40px;
     background-color: #f4f4f4;
     border-right: 1px solid #ddd;
 }
@@ -421,7 +421,7 @@ html, body {
     text-decoration: none;
     color: #333;
     font-size: 18px;
-    transition: color 0.3s;
+    transition: color 0.3s; /* change text color on hover */
 }
 
 #guide-nav ul li a:hover {
@@ -446,4 +446,18 @@ main section {
 main section h2 {
     font-size: 28px;
     margin-bottom: 10px;
+}
+
+/* error pages */
+.error-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #CDFAFA;
+}
+
+.error-text {
+    text-align: center;
+    color: #333;
 }
