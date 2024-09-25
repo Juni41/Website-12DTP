@@ -1,9 +1,14 @@
 /*Global*/
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@font-face {
+    font-family: 'Beaufort';
+    src: url('/static/fonts/BeaufortforLOL-Regular.ttf') format('truetype');
+}
 /* General Layout */
 body {
     margin: 0;
     padding: 0;
+    font-family: Montserrat;
     background: #CDFAFA;
     box-sizing: border-box;
 }
@@ -33,6 +38,7 @@ button {
     text-align: center;
     text-decoration:double;
     font-size: 16px;
+    font-family: Beufort;
     float:inline-end;
 }
 
@@ -258,6 +264,7 @@ html, body {
     display: flex; /* using flexbox */
     align-items: center; /* y axis */
     justify-content: center; /* x axis */
+    font-family: Beaufort;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
