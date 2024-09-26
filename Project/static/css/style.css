@@ -431,7 +431,7 @@ html, body {
 /* Main content styles */
 main {
     flex-grow: 1;
-    padding: 20px;
+    padding: 50px;
 }
 
 main h1 {
