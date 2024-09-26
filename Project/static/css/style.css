@@ -13,7 +13,7 @@ body {
     box-sizing: border-box;
 }
 /* logo */
-.logo-icon {
+.logo-icon { /* logo position and size */
     position: absolute;
     top: 50%;
     left: 15px;
