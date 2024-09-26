@@ -46,6 +46,30 @@
     </ul>
 </div> <!-- Scroll-container -->
 
+<!-- Comparison -->
+<section class="sec3">
+    <h2>Support</h2>
+    <h3>Key Characteristics of the Support Role:</h3>
+    <ul class="list-jobs">
+        <li><b>Position:</b> Plays in the bot lane alongside the ADC, but roams to help other lanes or set up vision.</li>
+        <li><b>No Farming:</b> Supports do not last-hit minions for gold; instead, they use support items that generate gold passively.</li>
+        <li><b>Utility: </b> Supports provide healing, shielding, or crowd control (stuns, roots, slows) to protect allies and disrupt enemies.</li>
+        <li><b>Peeling:</b> Support champions often protect their allies by using abilities to keep enemies away from them, especially during team fights.</li>
+    </ul>
+</section>
+
+<section class="sec3">
+    <h2>ADC [Attack Damage Carry]</h2>
+    <h3>Key Characteristics of the ADC Role:</h3>
+
+    <ul class="list-jobs">
+        <li><b>Position:</b> Typically plays in the bot lane alongside a support.</li>
+        <li><b>Damage Focus:</b> Deals primarily physical damage through auto-attacks and abilities.</li>
+        <li><b>Scaling:</b> Most ADC champions are weak early game but become powerful in the late game after building key damage items.</li>
+        <li><b>Relies on Positioning:</b> ADCs need to position themselves carefully in fights, staying behind their team and dealing damage from a safe distance.</li>
+    </ul>
+</section>
+
 <!-- Filtering Javascript -->
 <script>
 function filterItems() {
@@ -60,7 +84,7 @@ function filterItems() {
     });
 
     // Filter for ADC champions
-    const adcItems = document.querySelectorAll('.adc-item'); 
+    const adcItems = document.querySelectorAll('.champion-item'); 
     adcItems.forEach(item => {
         const name = item.getAttribute('data-name');
         // Show item if its name starts with the input string
