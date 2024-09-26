@@ -42,7 +42,7 @@ button {
     float:inline-end;
 }
 
-button:hover {
+button:hover { /* hover effect */
     background-color: #C89B3C;
 }
 
