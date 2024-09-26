@@ -1,4 +1,4 @@
-/*Global*/
+/*Fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 @font-face {
     font-family: 'Beaufort';
@@ -12,7 +12,7 @@ body {
     background: #CDFAFA;
     box-sizing: border-box;
 }
-
+/* logo */
 .logo-icon {
     position: absolute;
     top: 50%;
@@ -87,9 +87,6 @@ ul.list-sec li {
 }
 
 /*Champion information page*/
-
-
-/* Champion info section styling */
 .champion-info-container {
     display: flex;
     justify-content: space-between;
@@ -111,7 +108,7 @@ ul.list-sec li {
     background-color: #CDFAFA;
     border-radius: 10px;
     width: 100%;
-    box-sizing: border-box; /* Ensures padding is included in width calculations */
+    box-sizing: border-box;
 }
 
 /* Champion info section */
@@ -121,17 +118,17 @@ ul.list-sec li {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    box-sizing: border-box; /* Ensure padding is included in width */
+    box-sizing: border-box;
     min-width: 300px; /* Prevent shrinking too much */
 }
 
 /* Video section */
 .video-container {
-    width: 35%; /* Fixed width for the video container */
+    width: 35%;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    box-sizing: border-box; /* Ensure padding is included in width */
+    box-sizing: border-box;
     min-width: 250px; /* Prevent shrinking too much */
 }
 
@@ -334,7 +331,7 @@ html, body {
 
 .scroll-list li {
     display: inline-block; /* letting items sit next to each other */
-    margin: 10px; /* space between items */
+    margin: 10px;
 }
 
 .scroll-list button { /*remove padding, border and background for button */
